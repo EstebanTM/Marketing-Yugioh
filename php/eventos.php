@@ -29,7 +29,6 @@ echo "
 <table class='table'>
   <thead class='tblHead bg-info'>
     <tr>
-      <th scope='col'></th>
       <th scope='col'>Nombre</th>
       <th scope='col'>Descripción</th>
       <th scope='col'>Ubicación</th>

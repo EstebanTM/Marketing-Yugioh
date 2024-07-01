@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 01-07-2024 a las 22:49:40
+-- Tiempo de generación: 01-07-2024 a las 23:21:34
 -- Versión del servidor: 8.0.17
 -- Versión de PHP: 7.3.10
 
@@ -21,6 +21,37 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `yugioh`
 --
+
+DELIMITER $$
+--
+-- Procedimientos
+--
+CREATE DEFINER=`root`@`localhost` PROCEDURE `RegistrarUsuarioEnEvento` (IN `p_UsuarioID` INT, IN `p_EventoID` INT)  BEGIN
+    DECLARE v_Capacidad INT;
+
+    -- Obtener la capacidad actual del evento
+    SELECT Capacidad INTO v_Capacidad
+    FROM eventos
+    WHERE ID = p_EventoID;
+
+    -- Verificar si hay capacidad disponible
+    IF v_Capacidad > 0 THEN
+        -- Insertar el registro en la tabla intermedia
+        INSERT INTO usuario_eventos (UsuarioID, EventoID)
+        VALUES (p_UsuarioID, p_EventoID);
+
+        -- Disminuir la capacidad del evento
+        UPDATE eventos
+        SET Capacidad = Capacidad - 1
+        WHERE ID = p_EventoID;
+    ELSE
+        -- Lanzar un error si no hay capacidad
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'No hay capacidad disponible para este evento.';
+    END IF;
+END$$
+
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -52,6 +83,17 @@ INSERT INTO `eventos` (`ID`, `Nombre`, `Descripcion`, `Ubicacion`, `Capacidad`, 
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `registros`
+--
+
+CREATE TABLE `registros` (
+  `UsuarioID` int(11) NOT NULL,
+  `EventoID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `usuarios`
 --
 
@@ -71,6 +113,13 @@ CREATE TABLE `usuarios` (
 --
 ALTER TABLE `eventos`
   ADD PRIMARY KEY (`ID`);
+
+--
+-- Indices de la tabla `registros`
+--
+ALTER TABLE `registros`
+  ADD PRIMARY KEY (`UsuarioID`,`EventoID`),
+  ADD KEY `EventoID` (`EventoID`);
 
 --
 -- Indices de la tabla `usuarios`
@@ -93,6 +142,17 @@ ALTER TABLE `eventos`
 --
 ALTER TABLE `usuarios`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `registros`
+--
+ALTER TABLE `registros`
+  ADD CONSTRAINT `registros_ibfk_1` FOREIGN KEY (`UsuarioID`) REFERENCES `usuarios` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `registros_ibfk_2` FOREIGN KEY (`EventoID`) REFERENCES `eventos` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
