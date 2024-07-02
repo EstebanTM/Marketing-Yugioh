@@ -1,0 +1,12 @@
+header, footer {
+    padding: 1em;
+    background-color: #f8f9fa;
+}
+.navbar {
+    margin-bottom: 1em;
+    min-height: 50px;
+}
+.carousel-item video {
+    width: 100%;
+    height: auto;
+}
