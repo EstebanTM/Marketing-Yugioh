@@ -1,5 +1,96 @@
-.logo{
-    height: 50px;
+/* Navbar link styling */
+.navbar-nav .nav-link {
+    color: black; /* Color negro para todos los enlaces */
+    font-size: 30px; /* Tamaño de fuente más grande */
+    text-shadow: -1px -1px 0 white,  
+                  1px -1px 0 white,
+                 -1px  1px 0 white,
+                  1px  1px 0 white; /* Crear un efecto de borde blanco */
+    padding: 10px 20px; /* Padding alrededor del texto */
+    border-radius: 5px; /* Bordes redondeados */
+    margin: 0 10px; /* Margen entre los enlaces */
 }
-.carousel{
+
+/* Active link styling */
+.navbar-nav .nav-link.active {
+    color: red; /* Color para el enlace activo si es necesario */
+}
+
+/* Estilo para el botón "Iniciar Sesión" en la navbar */
+.navbar .ms-auto .nav-link {
+    color: black; /* Color del texto blanco */
+    font-size: 20px; /* Tamaño de fuente más grande */
+    padding: 10px 20px; /* Ajuste de padding */
+    background-color: #9d0208; /* Color de fondo rojo */
+    border: 2px solid white; /* Borde blanco de 2px */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+/* Cambio de color al pasar el ratón */
+.navbar .ms-auto .nav-link:hover {
+    background-color: #ff3333; /* Color de fondo más claro al pasar el ratón */
+    border-color: #ff3333; /* Color de borde más claro al pasar el ratón */
+}
+
+/* Navbar styling */
+.bg-body-tertiary {
+    --bs-bg-opacity: 0; /* Establece la opacidad del fondo a 0 */
+    background-color: transparent !important; /* Hace que el fondo sea transparente */
+    backdrop-filter: blur(10px); /* Añade un efecto de desenfoque opcional */
+    border-bottom: none; /* Elimina el borde inferior si es necesario */
+}
+
+.navbar {
+    background-color: transparent !important;
+    --bs-bg-opacity: 0 !important;
+    backdrop-filter: blur(10px);
+    border-bottom: none;
+}
+
+/* Logo styling */
+.logo {
+    width: 200px; /* Ajusta el ancho según sea necesario */
+    height: auto; /* Mantiene la proporción */
+}
+
+/* Body background styling */
+body {
+    background-image: url('../recursos/fondo3.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+}
+
+/* Button styling */
+.btn-primary {
+    background-color: red;
+    border-color: red;
+    font-size: 30px; /* Tamaño de fuente más grande */
+}
+
+/* Estilo para el copyright en el footer */
+.footer p {
+    color: black; /* Color negro para el texto */
+    font-size: 24px; /* Tamaño de fuente más grande */
+    text-shadow: -1px -1px 0 white,  
+                  1px -1px 0 white,
+                 -1px  1px 0 white,
+                  1px  1px 0 white; /* Efecto de borde blanco */
+}
+
+
+/* Flexbox center alignment for footer */
+.container,
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+/* Carousel styling */
+.carousel {
+    /* Añade cualquier estilo personalizado para el carrusel aquí */
 }
