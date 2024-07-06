@@ -1,3 +1,12 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+  // Redirigir al index.php si no hay sesión
+  header('Location: ../index.php');
+  exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,13 +19,44 @@
 	<link rel="stylesheet" href="../css/eventos.css">
 </head>
 <body>
+<!-- Header -->
 <header class="header">
-  <a href="#" class="titulo">Eventos</a>
-    <nav class="navbar">
-      <a href="perfil.php">Perfil</a>
-      <a href="../index.html">Inicio</a>
-    </nav>
-</header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="../recursos/Yu-Gi-Oh!.png" alt="" class="logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                    <ul class="navbar-nav mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="../index.php">Inicio</a>
+                        </li>
+                        <?php if (isset($_SESSION['user_id'])): ?>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="../php/eventos.php">Eventos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="../php/perfil.php">Perfil</a>
+                        </li>
+                        <?php endif; ?>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="../gameplay.php">Como jugar YuGiOh!</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="ms-auto">
+                    <?php if (!isset($_SESSION['user_id'])): ?>
+                    <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar Sesión</a>
+                    <?php else: ?>
+                    <a href="logout.php" class="nav-link">Cerrar Sesión</a>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </nav>
+    </header>
 
 <div class="container-fluid row">
 <div class="tblInventario p-4">

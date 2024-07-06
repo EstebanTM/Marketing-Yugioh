@@ -23,6 +23,9 @@ public function CreateConnection(){
 			die("Error al conectarse a MySQL: (" . $this->conn->connected_errno . ") ". $this->conn->connected_error);
 		}
 	}
+public function GetConnection() {
+        return $this->conn;
+}
 	
 public function CloseConnection(){
 		$this->conn->close();
