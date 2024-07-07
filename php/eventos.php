@@ -12,11 +12,13 @@ if (!isset($_SESSION['user_id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../recursos/logo.png" type="image/x-icon">
     <title>Eventos</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 	<script src="https://kit.fontawesome.com/ff9db9c428.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="../css/general.css">
-	<link rel="stylesheet" href="../css/eventos.css">
+    <link rel="stylesheet" href="../css/eventos.css">
+    <link rel="stylesheet" href="../css/general.css">
+
 </head>
 <body>
 <!-- Header -->
@@ -58,27 +60,12 @@ if (!isset($_SESSION['user_id'])) {
         </nav>
     </header>
 
-<div class="container-fluid row">
-<div class="tblInventario p-4">
+<div class="container">
+<div class="tblInventario">
 <?php
 require("../conexion/classConnectionMySQL.php");
 $Newconn = new ConnectionMySQL(); 
 $Newconn->CreateConnection();
-
-echo "
-<table class='table'>
-  <thead class='tblHead bg-info'>
-    <tr>
-      <th scope='col'>Nombre</th>
-      <th scope='col'>Descripción</th>
-      <th scope='col'>Ubicación</th>
-      <th scope='col'>Capacidad</th>
-      <th scope='col'>Fecha</th>
-      <th scope='col'>Precio</th>
-      <th scope='col'></th>
-    </tr>
-  </thead>
-  <tbody>";
 
 $query = "SELECT 
           eventos.ID,
@@ -87,36 +74,51 @@ $query = "SELECT
           eventos.Ubicacion,
           eventos.Capacidad,
           eventos.Fecha,
-          eventos.Precio
+          eventos.Precio,
+          eventos.ImagenURL
           from eventos";
 
 $result = $Newconn->ExecuteQuery($query);
-if ($result) {
-    while ($row = $Newconn->GetRows($result)) {
-      //<th scope='row'>" . $row[0] . "</th> --- linea para la columna de id
-        echo "<tr>
-                <td>" . $row[1] . "</td>
-                <td>" . $row[2] . "</td>
-                <td>" . $row[3] . "</td>
-                <td>" . $row[4] . "</td>
-                <td>" . $row[5] . "</td>
-                <td>" . $row[6] . "</td>
-                <td>
-					        <a class='btn btn-small btn-warning' href='editar.php?id=$row[0]'><i class='fa-solid fa-pen-to-square'></i></a>
-					        <a class='btn btn-small btn-danger' href='eliminar.php?id=$row[0]'><i class='fa-solid fa-trash'></i></a>
-				        </td>
-              </tr>";
+if ($result && $result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        echo '
+        <div class="col-md-6 mb-3">
+            <div class="card custom-card">
+                <div class="row g-0">
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">' . $row['Nombre'] . '</h5>
+                            <p class="card-text">' . $row['Descripcion'] . '</p>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><strong>Ubicación:</strong> ' . $row['Ubicacion'] . '</li>
+                                <li class="list-group-item"><strong>Capacidad:</strong> ' . $row['Capacidad'] . '</li>
+                                <li class="list-group-item"><strong>Fecha:</strong> ' . $row['Fecha'] . '</li>
+                                <li class="list-group-item"><strong>Precio:</strong> ' . $row['Precio'] . '</li>
+                            </ul>
+                            <a href="registrar.php" class="btn btn-success">Registrarse en el evento</a>
+                        </div>
+                        
+                    </div>
+                    <div class="col-md-4 align-items-center">
+                        <img src="' . $row['ImagenURL'] . '" class="card-img" alt="Imagen del evento">
+                    </div>
+                </div>
+            </div>
+        </div>';
     }
     $Newconn->SetFreeResult($result);
 } else {
-    echo "<tr><td colspan='5'><h1>Error al conectar a los eventos</h1></td></tr>";
+    echo "<tr>
+            <td colspan='5'>
+              <h1>Error al conectar a los eventos</h1>
+            </td>
+          </tr>";
 }
 
 echo "
   </tbody>
 </table>";
 ?>
-
 </div>
 </div>
 

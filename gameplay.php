@@ -6,8 +6,10 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="recursos/logo.png" type="image/x-icon">
     <title>Como jugar</title>
     <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/gameplay.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
@@ -49,6 +51,32 @@ session_start();
             </div>
         </nav>
     </header>
+    <!-- Contenido principal -->
+    <div class="container">
+        <div class="content-section">
+            <h1>Cómo jugar Yu-Gi-Oh!</h1>
+            <div class="clearfix">
+                <img src="path_to_your_image1.jpg" alt="Image 1" class="left-image">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec velit justo. Nullam aliquet lorem ac mauris aliquam, sit amet feugiat neque fermentum. Sed rutrum lectus non arcu blandit, nec vehicula est fermentum.</p>
+            </div>
+            <div class="clearfix">
+                <p>Integer eget nibh eu risus ullamcorper tincidunt. Fusce hendrerit, libero ac faucibus interdum, augue tortor aliquet leo, et posuere elit arcu non purus.</p>
+                <img src="path_to_your_image2.jpg" alt="Image 2" class="right-image">
+            </div>
+            <div class="clearfix">
+                <img src="path_to_your_image3.jpg" alt="Image 3" class="left-image">
+                <p>Vivamus vehicula felis vitae diam efficitur, id fermentum nunc scelerisque. Donec et tortor sit amet lorem auctor bibendum eu a felis.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2024 Yu-Gi-Oh! Todos los derechos reservados.</p>
+    </div>
+</footer>
+
 
 
 

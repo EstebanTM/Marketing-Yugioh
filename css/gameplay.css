@@ -1,0 +1,16 @@
+.content-section {
+    padding: 20px 0;
+}
+.left-image {
+    float: left;
+    margin-right: 20px;
+}
+.right-image {
+    float: right;
+    margin-left: 20px;
+}
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}

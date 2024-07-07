@@ -1,0 +1,19 @@
+.container{
+    margin-top: 30px;
+}
+.custom-card {
+    width: 1000px; /* Ancho personalizado de la tarjeta */
+    height: 318px;
+    margin-bottom: 30px; /* Espacio entre tarjetas */
+}
+.card-columns {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px; /* Espacio entre tarjetas */
+}
+.card-img {
+    width: 333px;
+    height: 316px;
+    margin-left: 0px;
+}
