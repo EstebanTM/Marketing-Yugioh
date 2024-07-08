@@ -33,45 +33,38 @@
 }
 
 /* Navbar styling */
-.bg-body-tertiary {
-    --bs-bg-opacity: 0; /* Establece la opacidad del fondo a 0 */
-    background-color: transparent !important; /* Hace que el fondo sea transparente */
-    backdrop-filter: blur(10px); /* Añade un efecto de desenfoque opcional */
-    border-bottom: none; /* Elimina el borde inferior si es necesario */
-}
-
 .navbar {
-    background-color: transparent !important;
-    --bs-bg-opacity: 0 !important;
-    backdrop-filter: blur(10px);
-    border-bottom: none;
+    background-color: transparent !important; /* Fondo de navbar transparente */
+    --bs-bg-opacity: 0 !important; /* Opacidad del fondo a 0 */
+    backdrop-filter: blur(10px); /* Efecto de desenfoque */
+    border-bottom: none; /* Sin borde inferior */
 }
 
 /* Logo styling */
 .logo {
-    width: 200px; /* Ajusta el ancho según sea necesario */
-    height: auto; /* Mantiene la proporción */
+    width: 200px; /* Ancho del logo */
+    height: auto; /* Altura automática manteniendo la proporción */
 }
 
 /* Body background styling */
 body {
-    background-image: url('../recursos/fondo3.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    font-family: Arial, sans-serif;
+    background-image: url('../recursos/fondo3.jpg'); /* Imagen de fondo */
+    background-size: cover; /* Cubre todo el tamaño del body */
+    background-repeat: no-repeat; /* No repetir la imagen */
+    background-attachment: fixed; /* Fondo fijo al hacer scroll */
+    font-family: Arial, sans-serif; /* Fuente del texto */
 }
 
 /* Button styling */
 .btn-primary {
-    background-color: red;
-    border-color: red;
+    background-color: red; /* Color de fondo rojo */
+    border-color: red; /* Color de borde rojo */
     font-size: 30px; /* Tamaño de fuente más grande */
 }
 
 /* Estilo para el copyright en el footer */
 .footer p {
-    color: black; /* Color negro para el texto */
+    color: black; /* Color del texto negro */
     font-size: 24px; /* Tamaño de fuente más grande */
     text-shadow: -1px -1px 0 white,  
                   1px -1px 0 white,
@@ -79,18 +72,22 @@ body {
                   1px  1px 0 white; /* Efecto de borde blanco */
 }
 
-
 /* Flexbox center alignment for footer */
 .container,
 .footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    flex-direction: column;
+    backdrop-filter: blur(10px); /* Aplica el efecto de desenfoque */
+    padding: 20px; /* Ajusta el padding según sea necesario */
 }
+
 
 /* Carousel styling */
 .carousel {
-    /* Añade cualquier estilo personalizado para el carrusel aquí */
+    /* Estilos adicionales para el carrusel */
+}
+
+/* Full width image styling */
+.full-width-image img {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove any extra space below the image */
 }
