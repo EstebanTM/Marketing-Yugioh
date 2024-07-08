@@ -99,6 +99,18 @@ session_start();
         </button>
     </div>
 
+    
+	 <!-- Images below the carousel -->
+    <div class="full-width-image">
+        <img src="recursos/GALERIA1.jpg" alt="Galeria 1" class="img-fluid">
+    </div>
+    <div class="full-width-image">
+        <img src="recursos/GALERIA2.jpg" alt="Galeria 2" class="img-fluid">
+    </div>
+    <div class="full-width-image">
+        <img src="recursos/GALERIA3.jpg" alt="Galeria 3" class="img-fluid">
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -107,74 +119,71 @@ session_start();
     </footer>
 
     <!-- Login Modal -->
-<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="loginModalLabel">Iniciar Sesión</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form id="loginForm" action="php/login.php" method="post">
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Correo Electrónico</label>
-                        <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Iniciar Sesión</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm" action="php/login.php" method="post">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="password" name="password">
+                        </div>
+                        <div id="error-message" class="text-danger mb-3" style="display:none;"></div>
+                        <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                    </form>
+                    <div class="mt-3">
+                        <p>¿No tienes una cuenta? <a href="#" data-bs-toggle="modal" data-bs-target="#registerModal" data-bs-dismiss="modal">Regístrate aquí</a></p>
                     </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Contraseña</label>
-                        <input type="password" class="form-control" id="password" name="password">
-                    </div>
-                    <div id="error-message" class="text-danger mb-3" style="display:none;"></div>
-                    <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
-                </form>
-                <div class="mt-3">
-                    <p>¿No tienes una cuenta? <a href="#" data-bs-toggle="modal" data-bs-target="#registerModal" data-bs-dismiss="modal">Regístrate aquí</a></p>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-
-<!-- Register Modal -->
-<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="registerModalLabel">Registrar</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form id="registerForm" action="php/registrarUsuario.php" method="post">
-                    <div class="mb-3">
-                        <label for="registerName" class="form-label">Nombre</label>
-                        <input type="text" class="form-control" id="registerName" name="nombre" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="registerEmail" class="form-label">Correo Electrónico</label>
-                        <input type="email" class="form-control" id="registerEmail" name="email" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="registerPassword" class="form-label">Contraseña</label>
-                        <input type="password" class="form-control" id="registerPassword" name="password" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="confirmPassword" class="form-label">Confirmar Contraseña</label>
-                        <input type="password" class="form-control" id="confirmPassword" name="confirm_password" required>
-                    </div>
-                    <div id="register-error-message" class="text-danger mb-3" style="display:none;"></div>
-                    <button type="submit" class="btn btn-primary">Registrar</button>
-                </form>
+    <!-- Register Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Registrar</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="registerForm" action="php/registrarUsuario.php" method="post">
+                        <div class="mb-3">
+                            <label for="registerName" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="registerName" name="registerName">
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerEmail" class="form-label">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="registerEmail" name="registerEmail">
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerPassword" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="registerPassword" name="registerPassword">
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerConfirmPassword" class="form-label">Confirmar Contraseña</label>
+                            <input type="password" class="form-control" id="registerConfirmPassword" name="registerConfirmPassword">
+                        </div>
+                        <div id="register-error-message" class="text-danger mb-3" style="display:none;"></div>
+                        <button type="submit" class="btn btn-primary">Registrar</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-
-
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="js/registrarUsuario.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybBogGzOgQpeS2bVHtvMlP49JUQoPp+OnlLJ2BxG7SkKP0pvr" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-ho+pPnxD03HJgPIB6VsU4e6LBYvGKS4f5Z4zo2Q9sNlcEwGpF4wUbC2mNfIr5c5E" crossorigin="anonymous"></script>
     <script src="js/login.js"></script>
 </body>
 </html>
