@@ -115,7 +115,7 @@ session_start();
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="php/login.php" method="post">
+                <form id="loginForm" action="php/login.php" method="post">
                     <div class="mb-3">
                         <label for="email" class="form-label">Correo Electrónico</label>
                         <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
@@ -124,6 +124,7 @@ session_start();
                         <label for="password" class="form-label">Contraseña</label>
                         <input type="password" class="form-control" id="password" name="password">
                     </div>
+                    <div id="error-message" class="text-danger mb-3" style="display:none;"></div>
                     <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
                 </form>
                 <div class="mt-3">
@@ -134,6 +135,7 @@ session_start();
     </div>
 </div>
 
+
 <!-- Register Modal -->
 <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -143,23 +145,24 @@ session_start();
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form>
+                <form id="registerForm" action="php/registrarUsuario.php" method="post">
                     <div class="mb-3">
                         <label for="registerName" class="form-label">Nombre</label>
-                        <input type="text" class="form-control" id="registerName">
+                        <input type="text" class="form-control" id="registerName" name="nombre" required>
                     </div>
                     <div class="mb-3">
                         <label for="registerEmail" class="form-label">Correo Electrónico</label>
-                        <input type="email" class="form-control" id="registerEmail" aria-describedby="emailHelp">
+                        <input type="email" class="form-control" id="registerEmail" name="email" required>
                     </div>
                     <div class="mb-3">
                         <label for="registerPassword" class="form-label">Contraseña</label>
-                        <input type="password" class="form-control" id="registerPassword">
+                        <input type="password" class="form-control" id="registerPassword" name="password" required>
                     </div>
                     <div class="mb-3">
                         <label for="confirmPassword" class="form-label">Confirmar Contraseña</label>
-                        <input type="password" class="form-control" id="confirmPassword">
+                        <input type="password" class="form-control" id="confirmPassword" name="confirm_password" required>
                     </div>
+                    <div id="register-error-message" class="text-danger mb-3" style="display:none;"></div>
                     <button type="submit" class="btn btn-primary">Registrar</button>
                 </form>
             </div>
@@ -168,7 +171,10 @@ session_start();
 </div>
 
 
-    <!-- JavaScript para Bootstrap -->
+
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="js/registrarUsuario.js"></script>
+    <script src="js/login.js"></script>
 </body>
 </html>

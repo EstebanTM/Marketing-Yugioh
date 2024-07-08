@@ -15,16 +15,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->execute();
     $result = $stmt->get_result();
 
-    if ($result) {
+    $response = array();
+    if ($result && $result->num_rows > 0) {
         $user = $result->fetch_assoc();
         $_SESSION['user_id'] = $user['ID'];
         $_SESSION['user_name'] = $user['Nombre'];
-        header("Location: ../index.php"); // Cambia a la página a la que quieras redirigir después del login
-        exit;
+        $response['success'] = true;
+        //header("Location: ../index.php"); // Cambia a la página a la que quieras redirigir después del login
+        //exit;
     } else {
-        $error = "Correo electrónico o contraseña incorrectos.";
+        $response['success'] = false;
+        $response['message'] = "Correo electrónico o contraseña incorrectos.";
     }
 
     $connection->CloseConnection();
+    echo json_encode($response);
 }
 ?>

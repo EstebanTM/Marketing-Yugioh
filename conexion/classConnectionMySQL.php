@@ -19,8 +19,8 @@ public function __construct(){
 public function CreateConnection(){
 		// Metodo que crea y retorna la conexion a la BD
 		$this ->conn = new mysqli($this->host, $this->user, $this->password, $this->database);
-		if($this->conn->connected_errno){
-			die("Error al conectarse a MySQL: (" . $this->conn->connected_errno . ") ". $this->conn->connected_error);
+		if($this->conn->connect_errno){
+			die("Error al conectarse a MySQL: (" . $this->conn->connect_errno . ") ". $this->conn->connect_error);
 		}
 	}
 public function GetConnection() {

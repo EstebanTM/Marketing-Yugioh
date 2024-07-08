@@ -95,7 +95,7 @@ if ($result && $result->num_rows > 0) {
                                 <li class="list-group-item"><strong>Fecha:</strong> ' . $row['Fecha'] . '</li>
                                 <li class="list-group-item"><strong>Precio:</strong> ' . $row['Precio'] . '</li>
                             </ul>
-                            <a href="registrar.php" class="btn btn-success">Registrarse en el evento</a>
+                            <a href="registrar.php?evento_id=' . $row['ID'] . '" class="btn btn-success">Registrarse en el evento</a>
                         </div>
                         
                     </div>
