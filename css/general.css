@@ -73,7 +73,7 @@ body {
 }
 
 /* Flexbox center alignment for footer */
-.container,
+
 .footer {
     backdrop-filter: blur(10px); /* Aplica el efecto de desenfoque */
     padding: 20px; /* Ajusta el padding según sea necesario */
@@ -91,3 +91,16 @@ body {
     height: auto; /* Maintain aspect ratio */
     display: block; /* Remove any extra space below the image */
 }
+
+/* Full width image styling */
+.full-width-image img {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove any extra space below the image */
+}
+
+.navbar-toggler-icon {
+    filter: brightness(0) invert(1); /* Cambia el color del icono a blanco */
+    border: 1px solid white; /* Agrega un borde blanco al icono */
+}
+
