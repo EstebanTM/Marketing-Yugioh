@@ -59,7 +59,7 @@ if (!isset($_SESSION['user_id'])) {
         </nav>
     </header>
 
-<div class="container">
+<div class="container-fluid d-flex justify-content-center">
 <div class="tblInventario">
 <?php
 require("../conexion/classConnectionMySQL.php");

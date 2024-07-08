@@ -1,4 +1,5 @@
 /* Navbar link styling */
+
 .navbar-nav .nav-link {
     color: black; /* Color negro para todos los enlaces */
     font-size: 30px; /* Tamaño de fuente más grande */
@@ -73,7 +74,6 @@ body {
 }
 
 /* Flexbox center alignment for footer */
-.container,
 .footer {
     backdrop-filter: blur(10px); /* Aplica el efecto de desenfoque */
     padding: 20px; /* Ajusta el padding según sea necesario */
