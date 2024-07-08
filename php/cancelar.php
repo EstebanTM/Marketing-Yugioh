@@ -20,13 +20,13 @@ require("../conexion/classConnectionMySQL.php");
 $Newconn = new ConnectionMySQL(); 
 $Newconn->CreateConnection();
 
-$usuario_id = $_SESSION['user_id'];
 $evento_id = $_GET['evento_id'];
+$usuario_id = $_SESSION['user_id'];
 
 // Llamar al procedimiento almacenado para cancelar el registro
 $query = "CALL CancelarRegistroEnEvento(?, ?)";
 $stmt = $Newconn->GetConnection()->prepare($query);
-$stmt->bind_param("ii", $user_id, $evento_id);
+$stmt->bind_param("ii", $usuario_id, $evento_id);
 $stmt->execute();
 
 if ($stmt->execute()) {
@@ -39,4 +39,7 @@ if ($stmt->execute()) {
 
 $stmt->close();
 $Newconn->CloseConnection();
+
+header('Location: perfil.php');
+exit();
 ?>

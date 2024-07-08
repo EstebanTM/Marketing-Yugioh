@@ -13,12 +13,12 @@ if (!isset($_SESSION['user_id'])) {
 //}
 
 require("../conexion/classConnectionMySQL.php");
+$Newconn = new ConnectionMySQL(); 
+$Newconn->CreateConnection();
 
 $evento_id = $_GET['evento_id'];
 $user_id = $_SESSION['user_id'];
 
-$Newconn = new ConnectionMySQL(); 
-$Newconn->CreateConnection();
 
 try {
     $query = "CALL RegistrarUsuarioEnEvento(?, ?)";
@@ -38,7 +38,7 @@ try {
 $stmt->close();
 $Newconn->CloseConnection();
 
-header('Location: eventos.php');
+header('Location: perfil.php');
 exit();
 ?>
 
