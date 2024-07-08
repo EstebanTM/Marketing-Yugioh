@@ -19,7 +19,11 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
         if (xhr.status === 200) {
             const response = JSON.parse(xhr.responseText);
             if (response.success) {
-                window.location.href = 'index.php'; // Redirigir a la página deseada
+                if (response.user_type == 1) {
+                    window.location.href = 'php/admin/eventosADM.php'; // Redirigir a la página de administrador
+                } else {
+                    window.location.href = 'index.php'; // Redirigir a la página deseada
+                }
             } else {
                 errorMessage.textContent = response.message;
                 errorMessage.style.display = 'block';

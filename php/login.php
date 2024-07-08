@@ -20,7 +20,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $user = $result->fetch_assoc();
         $_SESSION['user_id'] = $user['ID'];
         $_SESSION['user_name'] = $user['Nombre'];
+        $_SESSION['user_type'] = $user['Tipo'];
         $response['success'] = true;
+        $response['user_type'] = $user['Tipo'];
         //header("Location: ../index.php"); // Cambia a la página a la que quieras redirigir después del login
         //exit;
     } else {
