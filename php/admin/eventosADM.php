@@ -82,6 +82,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] != 1) {
 <div class="event-container d-flex align-items-center justify-content-between p-3 rounded">
   <h3>Tabla con todos los eventos disponibles</h3>
   <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addEventModal">Agregar evento</button>
+  <button class="btn btn-success" onclick="location.href='reportes.php'">Ver Reporte de Participantes</button>
 </div>
 
 <?php
@@ -131,7 +132,7 @@ if ($result) {
                 <td>" . $row[7] . "</td>
                 <td>" . $row[8] . "</td>
                 <td>
-					<a class='btn btn-small btn-warning me-3 mb-3' href='editarEvento.php?id=" . urlencode($row[0]) . "'><i class='fa-solid fa-pen-to-square'></i></a>
+					<a class='btn btn-small btn-warning me-2 mb-2' href='editarEvento.php?id=" . urlencode($row[0]) . "'><i class='fa-solid fa-pen-to-square'></i></a>
 					<a class='btn btn-small btn-danger' href='eliminarEvento.php?id=" . urlencode($row[0]) . "'><i class='fa-solid fa-trash'></i></a>
 				</td>
               </tr>";

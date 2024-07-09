@@ -150,42 +150,43 @@ session_start();
         </div>
     </div>
 
-    <!-- Register Modal -->
-    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="registerModalLabel">Registrar</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="registerForm" action="php/registrarUsuario.php" method="post">
-                        <div class="mb-3">
-                            <label for="registerName" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" id="registerName" name="registerName">
-                        </div>
-                        <div class="mb-3">
-                            <label for="registerEmail" class="form-label">Correo Electrónico</label>
-                            <input type="email" class="form-control" id="registerEmail" name="registerEmail">
-                        </div>
-                        <div class="mb-3">
-                            <label for="registerPassword" class="form-label">Contraseña</label>
-                            <input type="password" class="form-control" id="registerPassword" name="registerPassword">
-                        </div>
-                        <div class="mb-3">
-                            <label for="registerConfirmPassword" class="form-label">Confirmar Contraseña</label>
-                            <input type="password" class="form-control" id="registerConfirmPassword" name="registerConfirmPassword">
-                        </div>
-                        <div id="register-error-message" class="text-danger mb-3" style="display:none;"></div>
-                        <button type="submit" class="btn btn-primary">Registrar</button>
-                    </form>
-                </div>
+<!-- Register Modal -->
+<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="registerModalLabel">Registrar</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="registerForm" action="php/registrarUsuario.php" method="post">
+                    <div class="mb-3">
+                        <label for="registerName" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="registerName" name="nombre" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="registerEmail" class="form-label">Correo Electrónico</label>
+                        <input type="email" class="form-control" id="registerEmail" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="registerPassword" class="form-label">Contraseña</label>
+                        <input type="password" class="form-control" id="registerPassword" name="password" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="confirmPassword" class="form-label">Confirmar Contraseña</label>
+                        <input type="password" class="form-control" id="confirmPassword" name="confirm_password" required>
+                    </div>
+                    <div id="register-error-message" class="text-danger mb-3" style="display:none;"></div>
+                    <button type="submit" class="btn btn-primary">Registrar</button>
+                </form>
             </div>
         </div>
     </div>
+</div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybBogGzOgQpeS2bVHtvMlP49JUQoPp+OnlLJ2BxG7SkKP0pvr" crossorigin="anonymous"></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybBogGzOgQpeS2bVHtvMlP49JUQoPp+OnlLJ2BxG7SkKP0pvr" crossorigin="anonymous"></script>-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="js/login.js"></script>
+    <script src="js/registrarUsuario.js"></script>
 </body>
 </html>

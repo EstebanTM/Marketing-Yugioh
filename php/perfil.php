@@ -101,11 +101,19 @@ if ($result && $result->num_rows > 0) {
     }
     $Newconn->SetFreeResult($result);
 } else {
-    echo "<tr>
-            <td colspan='5'>
-              <h1>No estás registrado en ningún evento.</h1>
-            </td>
-          </tr>";
+    echo '
+    <div class="col-md-6 mb-3">
+        <div class="card">
+            <div class="row g-0">
+                <div class="col-md-12">
+                    <div class="card-body">
+                        <h5 class="card-title">Sin eventos registrados</h5>
+                        <p class="card-text">No estás registrado en ningún evento.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>';
 }
 
 echo "

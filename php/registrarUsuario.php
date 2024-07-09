@@ -42,13 +42,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit;
         } else {
             // Insertar el nuevo usuario
-            $stmt = $conn->prepare("INSERT INTO usuarios (Nombre, Usuario, Contrasenia) VALUES (?, ?, ?)");
-            $stmt->bind_param("sss", $nombre, $email, $password);
+            $tipo=0;
+            $stmt = $conn->prepare("INSERT INTO usuarios (Nombre, Usuario, Contrasenia, Tipo) VALUES (?, ?, ?, ?)");
+            $stmt->bind_param("sssi", $nombre, $email, $password, $tipo);
 
             if ($stmt->execute()) {
                 $_SESSION['user_id'] = $conn->insert_id;
                 $_SESSION['user_name'] = $nombre;
-                $_SESSION['user_type'] = 0;
+                $_SESSION['user_type'] = $tipo;
                 $_SESSION['success'] = "Usuario registrado exitosamente. Redirigiendo...";
                 header("Location: ../index.php"); // Cambia a la página a la que quieras redirigir después del registro
                 exit;
