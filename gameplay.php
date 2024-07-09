@@ -52,24 +52,156 @@ session_start();
         </nav>
     </header>
     <!-- Contenido principal -->
-    <div class="container">
-        <div class="content-section">
-            <h1>Cómo jugar Yu-Gi-Oh!</h1>
-            <div class="clearfix">
-                <img src="path_to_your_image1.jpg" alt="Image 1" class="left-image">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec velit justo. Nullam aliquet lorem ac mauris aliquam, sit amet feugiat neque fermentum. Sed rutrum lectus non arcu blandit, nec vehicula est fermentum.</p>
+    <div id="gameplay-content" class="container content-section">
+    <h1>Cómo Jugar Yu-Gi-Oh!</h1>
+
+    <div id="objetivo">
+        <h2>Objetivo del Juego</h2>
+        <p>El objetivo del juego es reducir los puntos de vida (LP) de tu oponente a 0 antes de que ellos reduzcan los tuyos. Cada jugador comienza con 8000 puntos de vida.</p>
+        <div id="carouselExampleCaptions" class="carousel slide">
+            <div class="carousel-inner">
+            <div class="carousel-item active">
+                <video class="d-block w-100" autoplay loop muted>
+                    <source src="recursos/v1.mp4" type="video/mp4">
+                </video>  
             </div>
-            <div class="clearfix">
-                <p>Integer eget nibh eu risus ullamcorper tincidunt. Fusce hendrerit, libero ac faucibus interdum, augue tortor aliquet leo, et posuere elit arcu non purus.</p>
-                <img src="path_to_your_image2.jpg" alt="Image 2" class="right-image">
             </div>
-            <div class="clearfix">
-                <img src="path_to_your_image3.jpg" alt="Image 3" class="left-image">
-                <p>Vivamus vehicula felis vitae diam efficitur, id fermentum nunc scelerisque. Donec et tortor sit amet lorem auctor bibendum eu a felis.</p>
             </div>
-        </div>
+          <div class="clearfix"></div> <!-- Limpieza de flotantes -->
+          <br> <!-- Salto de línea -->   
     </div>
 
+    <div id="componentes">
+         <h2>Componentes del Juego</h2>
+        <h3>Cartas</h3>
+        <ul>
+        <li><b>Cartas de Monstruo:</b> Estas cartas se usan para atacar y defender.</li>
+        </ul>
+        <img src="recursos/k2.png" alt="Carta de Monstruo" class="left-image" style="width: 700px; height: auto; margin-right: 20px;">
+        <div class="clearfix"></div> <!-- Limpieza de flotantes -->
+        <br> <!-- Salto de línea -->
+        <ul><li><b>Cartas de Magia:</b> Estas cartas tienen efectos especiales que pueden influir en el juego de diversas maneras.</li></ul>
+        <img src="recursos/c4.jpg" alt="Carta de Magica" class="left-image" style="width: 150px; height: auto; margin-right: 20px;">
+        <div class="clearfix"></div> <!-- Limpieza de flotantes -->
+        <br> <!-- Salto de línea -->
+        <ul><li><b>Cartas de Trampa:</b> Estas cartas se colocan boca abajo y se activan en respuesta a ciertas acciones del oponente.</li></ul>
+        <img src="recursos/c3.png" alt="Carta de Trampa" class="left-image" style="width: 150px; height: auto; margin-right: 20px;">
+        <div class="clearfix"></div> <!-- Limpieza de flotantes -->
+        <br> <!-- Salto de línea -->
+        <ul><li><b>DATO IMPORTANTE:</b> Tu deck solo puede contener mínimo 40 y máximo 60 cartas.</li></ul>
+        <img src="recursos/d1.jpg" alt="Carta de Trampa" class="left-image" style="width: 400px; height: auto; margin-right: 20px;">
+        <div class="clearfix"></div> <!-- Limpieza de flotantes -->
+        <br> <!-- Salto de línea -->
+        
+
+
+        <h3>Campo de Juego</h3>
+        <ul>
+            <li><b>Zonas de Monstruo:</b> Hasta 5 monstruos pueden estar en el campo a la vez.</li>
+            <li><b>Zonas de Magia y Trampa:</b> Hasta 5 cartas de Magia o Trampa pueden estar en el campo a la vez.</li>
+            <li><b>Zona de Cementerio:</b> Aquí van las cartas destruidas.</li>
+            <li><b>Zona de Deck Principal:</b> Aquí está tu mazo principal de cartas.</li>
+            <li><b>Zona de Deck Extra:</b> Aquí están cartas especiales como los Monstruos de Fusión, Sincronía y XYZ.</li>
+        </ul>
+        <img src="recursos/t1.jpg" alt="Carta de Trampa" class="left-image" style="width: 800px; height: auto; margin-right: 20px;">
+        <div class="clearfix"></div> <!-- Limpieza de flotantes -->
+        
+    </div>
+
+    <div id="fases">
+        <h2>Fases del Juego</h2>
+        <ul>
+            <li><b>Draw Phase (Fase de Robo):</b> El jugador roba una carta.</li>
+            <li><b>Standby Phase (Fase de Espera):</b> Se resuelven efectos que ocurren durante esta fase.</li>
+            <li><b>Main Phase 1 (Fase Principal 1):</b> El jugador puede invocar monstruos, activar cartas de Magia/Trampa, y colocar cartas de Magia/Trampa.</li>
+            <li><b>Battle Phase (Fase de Batalla):</b> El jugador puede atacar con sus monstruos.</li>
+            <li><b>Main Phase 2 (Fase Principal 2):</b> Similar a la Main Phase 1, pero ocurre después de la Battle Phase.</li>
+            <li><b>End Phase (Fase Final):</b> El jugador termina su turno y se resuelven efectos que ocurren al final del turno.</li>
+        </ul>
+    </div>
+
+    <div id="invocaciones">
+        <h2>Invocaciones</h2>
+        <ul>
+            <li><b>Invocación Normal:</b> Puedes invocar un monstruo de nivel 4 o menor una vez por turno.</li>
+            <div id="carouselExampleCaptions" class="carousel slide">
+            <div class="carousel-inner">
+            <div class="carousel-item active">
+                <video class="d-block w-100" autoplay loop muted>
+                    <source src="recursos/pr2.mp4" type="video/mp4">
+                </video>  
+            </div>
+            </div>
+            </div>
+            <div class="clearfix"></div> <!-- Limpieza de flotantes -->
+            <br> <!-- Salto de línea -->
+            <li><b>Invocación por Sacrificio:</b> Para invocar monstruos de nivel 5 o 6, debes sacrificar un monstruo. Para monstruos de nivel 7 o mayor, necesitas sacrificar dos monstruos.</li>
+            <div id="carouselExampleCaptions" class="carousel slide">
+            <div class="carousel-inner">
+            <div class="carousel-item active">
+                <video class="d-block w-100" autoplay loop muted>
+                    <source src="recursos/pr1.mp4" type="video/mp4">
+                </video>  
+            </div>
+            </div>
+            </div>
+          <div class="clearfix"></div> <!-- Limpieza de flotantes -->
+          <br> <!-- Salto de línea -->
+          <li><b>Invocación Especial:</b> Algunos monstruos pueden ser invocados mediante efectos especiales.</li>
+          <div id="carouselExampleCaptions" class="carousel slide">
+            <div class="carousel-inner">
+            <div class="carousel-item active">
+                <video class="d-block w-100" autoplay loop muted>
+                    <source src="recursos/pr3.mp4" type="video/mp4">
+                </video>  
+            </div>
+            </div>
+            </div>
+          <div class="clearfix"></div> <!-- Limpieza de flotantes -->
+          <br> <!-- Salto de línea -->
+          
+        </ul>
+    </div>
+
+    <div id="batalla">
+        <h2>Batalla</h2>
+        <p><b>Ataque de Monstruo:</b> Cada monstruo tiene puntos de ataque (ATK) y puntos de defensa (DEF). Si un monstruo en ataque ataca a otro en ataque y su ATK es mayor, el monstruo oponente es destruido y la diferencia en puntos de ataque se resta de los puntos de vida del oponente. Si un monstruo ataca a un monstruo en defensa y su ATK es mayor que la DEF del monstruo defensor, el monstruo defensor es destruido pero no se inflige daño al oponente. Si la DEF es mayor que el ATK, el atacante recibe el daño de diferencia.</p>
+        <div id="carouselExampleCaptions" class="carousel slide">
+            <div class="carousel-inner">
+            <div class="carousel-item active">
+                <video class="d-block w-100" autoplay loop muted>
+                    <source src="recursos/b1.mp4" type="video/mp4">
+                </video>  
+            </div>
+            </div>
+            </div>
+          <div class="clearfix"></div> <!-- Limpieza de flotantes -->
+          <br> <!-- Salto de línea -->
+        <p><b>Cartas de Magia y Trampa:</b> Pueden ser activadas para influir en la batalla de diversas maneras.</p>
+        <div id="carouselExampleCaptions" class="carousel slide">
+            <div class="carousel-inner">
+            <div class="carousel-item active">
+                <video class="d-block w-100" autoplay loop muted>
+                    <source src="recursos/b2.mp4" type="video/mp4">
+                </video>  
+            </div>
+            </div>
+            </div>
+          <div class="clearfix"></div> <!-- Limpieza de flotantes -->
+          <br> <!-- Salto de línea -->
+    </div>
+
+    <div id="estrategia">
+        <h2>Estrategia</h2>
+        <p>La estrategia en Yu-Gi-Oh! implica construir un mazo equilibrado, planificar tus movimientos, y anticipar las acciones del oponente. Cada carta tiene efectos únicos que pueden cambiar el curso del juego, así que conocer bien tu mazo y cómo interactúan las cartas entre sí es crucial.</p>
+        <p>Esto es solo una introducción básica; el juego tiene muchas más reglas y estrategias avanzadas.</p>
+        <p>Para más información consulta el libro de reglas oficial: <a href="https://img.yugioh-card.com/eu/wp-content/uploads/2022/07/Rulebook_v9_es.pdf" target="_blank">LIBRO DE REGLAS OFICIAL</a></p>
+            <div class="gifs-container">
+        <img src="recursos/g1.gif" alt="Animación" class="resize-gif">
+        
+             </div>
+    </div>
+</div>
     <!-- Footer -->
 <footer class="footer">
     <div class="container">
