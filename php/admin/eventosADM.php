@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['user_id'])) {
+if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] != 1) {
   // Redirigir al index.php si no hay sesión
   header('Location: ../../index.php');
   exit();
@@ -81,7 +81,7 @@ if (!isset($_SESSION['user_id'])) {
 
 <div class="event-container d-flex align-items-center justify-content-between p-3 rounded">
   <h3>Tabla con todos los eventos disponibles</h3>
-  <button type="button" class="btn btn-success">Agregar eventos</button>
+  <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addEventModal">Agregar evento</button>
 </div>
 
 <?php
@@ -131,8 +131,8 @@ if ($result) {
                 <td>" . $row[7] . "</td>
                 <td>" . $row[8] . "</td>
                 <td>
-					<a class='btn btn-small btn-warning me-3 mb-3' href='editar.php?id=$row[0]'><i class='fa-solid fa-pen-to-square'></i></a>
-					<a class='btn btn-small btn-danger' href='eliminar.php?id=$row[0]'><i class='fa-solid fa-trash'></i></a>
+					<a class='btn btn-small btn-warning me-3 mb-3' href='editarEvento.php?id=" . urlencode($row[0]) . "'><i class='fa-solid fa-pen-to-square'></i></a>
+					<a class='btn btn-small btn-danger' href='eliminarEvento.php?id=" . urlencode($row[0]) . "'><i class='fa-solid fa-trash'></i></a>
 				</td>
               </tr>";
     }
@@ -145,9 +145,59 @@ echo "
   </tbody>
 </table>";
 ?>
+</div>
+</div>
 
+
+<!-- Modal para agregar eventos -->
+<div class="modal fade" id="addEventModal" tabindex="-1" aria-labelledby="addEventModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addEventModalLabel">Agregar Evento</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="agregarEvento.php" method="POST" enctype="multipart/form-data">
+          <div class="mb-3">
+            <label for="eventName" class="form-label">Nombre del Evento</label>
+            <input type="text" class="form-control" id="eventName" name="eventName" required>
+          </div>
+          <div class="mb-3">
+            <label for="eventDescription" class="form-label">Descripción</label>
+            <textarea class="form-control" id="eventDescription" name="eventDescription" rows="3" required></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="eventLocation" class="form-label">Ubicación</label>
+            <input type="text" class="form-control" id="eventLocation" name="eventLocation" required>
+          </div>
+          <div class="mb-3">
+            <label for="eventCapacity" class="form-label">Capacidad</label>
+            <input type="number" class="form-control" id="eventCapacity" name="eventCapacity" required>
+          </div>
+          <div class="mb-3">
+            <label for="eventDate" class="form-label">Fecha</label>
+            <input type="date" class="form-control" id="eventDate" name="eventDate" required>
+          </div>
+          <div class="mb-3">
+            <label for="eventPrice" class="form-label">Precio</label>
+            <input type="number" class="form-control" id="eventPrice" name="eventPrice" required>
+          </div>
+          <div class="mb-3">
+            <label for="eventImage" class="form-label">URL de la Imagen</label>
+            <input type="url" class="form-control" id="eventImage" name="eventImage" required>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary">Agregar Evento</button>
+          </div>
+          
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
-</div>
+
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>

@@ -79,7 +79,6 @@ body {
     padding: 20px; /* Ajusta el padding según sea necesario */
 }
 
-
 /* Carousel styling */
 .carousel {
     /* Estilos adicionales para el carrusel */
@@ -91,3 +90,16 @@ body {
     height: auto; /* Maintain aspect ratio */
     display: block; /* Remove any extra space below the image */
 }
+
+/* Full width image styling */
+.full-width-image img {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove any extra space below the image */
+}
+
+.navbar-toggler-icon {
+    filter: brightness(0) invert(1); /* Cambia el color del icono a blanco */
+    border: 1px solid white; /* Agrega un borde blanco al icono */
+}
+

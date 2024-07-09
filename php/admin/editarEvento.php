@@ -18,7 +18,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] != 1) {
 	<script src="https://kit.fontawesome.com/ff9db9c428.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../../css/eventos.css">
 	<link rel="stylesheet" href="../../css/general.css">
-    <link rel="stylesheet" href="../../css/usuariosADM.css">
+    <link rel="stylesheet" href="../../css/editarEvento.css">
 </head>
 <body>
 
@@ -74,102 +74,65 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] != 1) {
     </nav>
 </header>
 
-
 <div class="container-fluid d-flex justify-content-center">
-<div class="tblInventario w-75">
-    
-<div class="event-container d-flex align-items-center justify-content-between p-3 rounded">
-  <h3>Tabla con todos los usuarios disponibles</h3>
-  <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addEventModal">Agregar usuario</button>
-</div>
-<?php
-require("../../conexion/classConnectionMySQL.php");
-$Newconn = new ConnectionMySQL(); 
-$Newconn->CreateConnection();
+    <div class="formEditar w-75 rounded">
+    <form class="frmEdit w-50 mx-auto" method="POST" action="updateEvento.php">
+        <h3 class="text-center alert alert-secondary lblTop">Editar evento</h3>
+        <?php
+	        require ("../../conexion/classConnectionMySQL.php");
 
-echo "
-<table class='table table-bordered table-striped rounded'>
-  <thead class='tblHead'>
-    <tr>
-      <th scope='col'>ID</th>
-      <th scope='col'>Nombre</th>
-      <th scope='col'>Usuario</th>
-      <th scope='col'>Contrasenia</th>
-      <th scope='col'>Tipo</th>
-      <th scope='col'></th>
-    </tr>
-  </thead>
-  <tbody>";
-
-$query = "SELECT 
-          usuarios.ID,
-          usuarios.Nombre,
-          usuarios.Usuario,
-          usuarios.Contrasenia,
-          usuarios.Tipo
-          from usuarios";
-$result = $Newconn->ExecuteQuery($query);
-if ($result) {
-    while ($row = $Newconn->GetRows($result)) {
-        echo "<tr>
-                <th scope='row'>" . $row[0] . "</th>
-                <td>" . $row[1] . "</td>
-                <td>" . $row[2] . "</td>
-                <td>" . $row[3] . "</td>
-                <td>" . $row[4] . "</td>
-                <td>
-					<a class='btn btn-small btn-warning ms-3 me-3' href='editarUsuario.php?id=" . urlencode($row[0]) . "'><i class='fa-solid fa-pen-to-square'></i></a>
-					<a class='btn btn-small btn-danger' href='eliminarUsuario.php?id=" . urlencode($row[0]) . "'><i class='fa-solid fa-trash'></i></a>
-				</td>
-              </tr>";
-    }
-    $Newconn->SetFreeResult($result);
-} else {
-    echo "<tr><td colspan='5'><h1>Error al conectar a los usuarios</h1></td></tr>";
-}
-
-echo "
-  </tbody>
-</table>";
-?>
-</div>
-</div>
-
-
-<!-- Modal para agregar usuarios -->
-<div class="modal fade" id="addEventModal" tabindex="-1" aria-labelledby="addEventModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="addEventModalLabel">Agregar Usuario</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form action="agregarUsuario.php" method="POST" enctype="multipart/form-data">
-          <div class="mb-3">
-            <label for="eventName" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="eventName" name="eventName" required>
-          </div>
-          <div class="mb-3">
-            <label for="eventDescription" class="form-label">Usuario</label>
-            <input type="email" class="form-control" id="eventUser" name="eventUser" rows="3" required></textarea>
-          </div>
-          <div class="mb-3">
-            <label for="eventLocation" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" id="eventPswd" name="eventPswd" required>
-          </div>
-          <div class="mb-3">
-            <label for="eventCapacity" class="form-label">Tipo</label>
-            <input type="number" class="form-control" id="eventTipe" name="eventTipe" required>
-          </div>
-          <div class="text-center">
-            <button type="submit" class="btn btn-primary">Agregar usuario</button>
-          </div>
-        </form>
-      </div>
+			// Creamos una nueva instancia
+			$NewConn = new ConnectionMySQL();
+			// Creamos una nueva conexion
+			$NewConn->CreateConnection();
+			/////////
+			$id= $_GET['id'];
+			
+			///Consulta a la base de datos
+			$query = "Select * from eventos WHERE ID = $id";
+			$result = $NewConn -> ExecuteQuery($query);
+            while($datos=$result->fetch_object()){?>
+                <div class="mb-3">
+                    <label for="id" class="form-label">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" value="<?= $datos->ID ?>" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="name" name="nombre" value="<?= $datos->Nombre ?>">
+                </div>
+                <div class="mb-3">
+                    <label for="locat" class="form-label">Descripcion</label>
+                    <input type="text" class="form-control" id="descripcion" name="descripcion" value="<?= $datos->Descripcion ?>">
+                </div>
+                <div class="mb-3">
+                    <label for="locat" class="form-label">Ubicacion</label>
+                    <input type="text" class="form-control" id="ubicacion" name="ubicacion" value="<?= $datos->Ubicacion ?>">
+                </div>
+                <div class="mb-3">
+                    <label for="locat" class="form-label">Capacidad</label>
+                    <input type="number" class="form-control" id="capacidad" name="capacidad" value="<?= $datos->Capacidad ?>">
+                </div>
+                <div class="mb-3">
+                    <label for="locat" class="form-label">Fecha del evento</label>
+                    <input type="date" class="form-control" id="fecha" name="fecha" value="<?= $datos->Fecha ?>">
+                </div>
+                <div class="mb-3">
+                    <label for="locat" class="form-label">Precio</label>
+                    <input type="number" class="form-control" id="precio" name="precio" value="<?= $datos->Precio ?>">
+                </div>
+                <div class="mb-3">
+                    <label for="locat" class="form-label">Url de la imagen</label>
+                    <input type="text" class="form-control" id="imagenUrl" name="imagenUrl" value="<?= $datos->ImagenURL ?>">
+                </div>
+            <?php }
+            ?>
+            <div class="btnAcept text-center">
+                <button type="submit" class="btn btn-warning">Editar</button>
+            </div>
+    </form>
     </div>
-  </div>
 </div>
+
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

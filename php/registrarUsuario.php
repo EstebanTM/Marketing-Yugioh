@@ -48,6 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($stmt->execute()) {
                 $_SESSION['user_id'] = $conn->insert_id;
                 $_SESSION['user_name'] = $nombre;
+                $_SESSION['user_type'] = 0;
                 $_SESSION['success'] = "Usuario registrado exitosamente. Redirigiendo...";
                 header("Location: ../index.php"); // Cambia a la página a la que quieras redirigir después del registro
                 exit;
