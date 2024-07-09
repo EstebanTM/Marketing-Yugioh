@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 08-07-2024 a las 18:11:35
+-- Tiempo de generación: 09-07-2024 a las 20:42:58
 -- Versión del servidor: 8.0.17
 -- Versión de PHP: 7.3.10
 
@@ -96,11 +96,12 @@ CREATE TABLE `eventos` (
 --
 
 INSERT INTO `eventos` (`ID`, `Nombre`, `Descripcion`, `Ubicacion`, `Capacidad`, `Fecha`, `Precio`, `ImagenURL`) VALUES
-(1, 'Yu-Gi-Oh! World Championship 2024', 'El evento más grande del año donde los mejores duelistas del mundo compiten por el título de campeón', 'Tokyo International Forum, Tokio, Japón', 500, '2024-08-10', '150.00', 'https://www.t-i-forum.co.jp/en/mt_images/kv02_sp.jpg'),
+(1, 'Yu-Gi-Oh! World Championship 2025', 'El evento más grande del año donde los mejores duelistas del mundo compiten por el título de campeón', 'Tokyo International Forum, Tokio, Japón', 99, '2024-08-10', '100.00', 'https://www.t-i-forum.co.jp/en/mt_images/kv02_sp.jpg'),
 (2, 'Yu-Gi-Oh! National Championship USA 2024', 'El campeonato nacional de Yu-Gi-Oh! en Estados Unidos para determinar al mejor duelista del país.', 'Los Angeles Convention Center, Los Angeles, CA, US', 1499, '2024-05-20', '100.00', 'https://www.lacclink.com/assets/img/20160403-DSC00998-2.png-660x360-9434d56321.png'),
 (3, 'Yu-Gi-Oh! European Championship 2024', 'El campeonato europeo donde los mejores duelistas de Europa se enfrentan.', 'Messe Frankfurt, Frankfurt, Alemania', 2000, '2024-07-15', '120.00', 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/13/88/24/47/messe-frankfurt.jpg?w=1200&h=-1&s=1'),
 (4, 'Yu-Gi-Oh! Latin America Championship 2024', 'El campeonato para que los duelistas de América Latina muestren sus habilidades al mundo.', 'Centro de Convenciones de São Paulo, São Paulo, Br', 2500, '2024-06-10', '80.00', 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/26/6f/18/4f/caption.jpg?w=500&h=500&s=1'),
-(5, 'Yu-Gi-Oh! Asia Championship 2024', 'El campeonato asiático que reúne a los mejores duelistas del continente.', 'Hong Kong Convention and Exhibition Centre, Hong K', 1500, '2024-09-05', '130.00', 'https://www.mehongkong.com/dam/jcr:c46f4cc3-d802-4f19-82ab-daf5a7be1c14/HKCEC_001_860X484.jpg');
+(5, 'Yu-Gi-Oh! Asia Championship 2024', 'El campeonato asiático que reúne a los mejores duelistas del continente.', 'Hong Kong Convention and Exhibition Centre, Hong K', 1500, '2024-09-05', '130.00', 'https://www.mehongkong.com/dam/jcr:c46f4cc3-d802-4f19-82ab-daf5a7be1c14/HKCEC_001_860X484.jpg'),
+(7, 'asdmin', 'estebantapiamunoz@gmai.com', 'admin', 0, '0000-00-00', '0.00', '');
 
 -- --------------------------------------------------------
 
@@ -118,6 +119,7 @@ CREATE TABLE `registros` (
 --
 
 INSERT INTO `registros` (`UsuarioID`, `EventoID`) VALUES
+(1, 1),
 (1, 2);
 
 -- --------------------------------------------------------
@@ -130,15 +132,17 @@ CREATE TABLE `usuarios` (
   `ID` int(11) NOT NULL,
   `Nombre` varchar(50) NOT NULL,
   `Usuario` varchar(254) NOT NULL,
-  `Contrasenia` varchar(50) NOT NULL
+  `Contrasenia` varchar(50) NOT NULL,
+  `Tipo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`ID`, `Nombre`, `Usuario`, `Contrasenia`) VALUES
-(1, 'Esteban', 'estebantm485@gmail.com', '1234');
+INSERT INTO `usuarios` (`ID`, `Nombre`, `Usuario`, `Contrasenia`, `Tipo`) VALUES
+(1, 'Esteban', 'estebantm485@gmail.com', '1234', 0),
+(5, 'Esteban', 's18120211@alumnos.itsur.edu.mx', 'admin', 1);
 
 --
 -- Índices para tablas volcadas
@@ -171,13 +175,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `eventos`
 --
 ALTER TABLE `eventos`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Restricciones para tablas volcadas
